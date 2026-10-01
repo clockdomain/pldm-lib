@@ -19,7 +19,7 @@ use crate::protocol::base::{
 use crate::protocol::firmware_update::FwUpdateCmd;
 use zerocopy::{FromBytes, Immutable, IntoBytes};
 
-pub const MAX_TRANSFER_SIZE: usize = 512; // Define an appropriate size
+pub const MAX_TRANSFER_SIZE: usize = 960; // max firmware-data bytes per RequestFirmwareData response; bounded by the <=1023 B MCTP message size after PLDM/MCTP headers
 
 #[derive(Debug, Clone, FromBytes, IntoBytes, Immutable, PartialEq)]
 #[repr(C, packed)]
